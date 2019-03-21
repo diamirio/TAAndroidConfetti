@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Confetti/Example</string>
+    <string name="main_btn_text">Click me 10 times!</string>
+</resources>
