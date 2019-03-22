@@ -28,4 +28,4 @@ fun AppCompatActivity.confetti(): Lazy<TAConfetti> = lazy { TAConfetti(this) }
 /**
  * Convenience function to create a [TAConfetti] for a [Fragment].
  */
-fun Fragment.confetti(): Lazy<TAConfetti> = lazy { TAConfetti(requireActivity()) }
+fun Fragment.confetti(): Lazy<TAConfetti> = lazy { TAConfetti(this) }
