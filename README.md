@@ -6,6 +6,10 @@ TAConfetti is a small library to add a rain of Tailored Apps Confetti to your ap
 
 Credits for Confetti Physics: [jinatonic/confetti](https://github.com/jinatonic/confetti).
 
+<p align="center">
+  <img alt="flow" src="https://github.com/tailoredmedia/TAAndroidConfetti/blob/master/example.png" width="33%">
+</p>
+
 ## Installation
 
 ```groovy
