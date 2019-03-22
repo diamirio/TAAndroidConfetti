@@ -24,7 +24,7 @@ dependencies {
     implementation deps.kotlin
     implementation deps.appcompat
     kapt deps.lifecyclecompiler
-    implementation deps.confetti
+    api deps.confetti
     implementation deps.preferences.values()
 }
 
