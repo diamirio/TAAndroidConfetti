@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.config.compileSdkVersion
@@ -22,7 +23,9 @@ dokka {
 dependencies {
     implementation deps.kotlin
     implementation deps.appcompat
+    kapt deps.lifecyclecompiler
     implementation deps.confetti
+    implementation deps.preferences.values()
 }
 
 apply from: "$rootDir/deploy.gradle"

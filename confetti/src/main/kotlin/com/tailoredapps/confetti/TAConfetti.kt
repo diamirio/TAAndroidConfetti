@@ -4,9 +4,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.DrawableRes
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
@@ -15,6 +12,8 @@ import com.github.jinatonic.confetti.ConfettiManager
 import com.github.jinatonic.confetti.ConfettiSource
 import com.github.jinatonic.confetti.ConfettoGenerator
 import com.github.jinatonic.confetti.confetto.BitmapConfetto
+import com.github.jinatonic.confetti.confetto.Confetto
+import java.util.*
 
 
 /**
@@ -58,28 +57,27 @@ class TAConfetti(
     }
 
     private fun ViewGroup.createConfettiManager(): ConfettiManager {
-        val size: Int = resources.getDimensionPixelSize(R.dimen.big_confetti_size)
-        val generator = ConfettoGenerator {
-            BitmapConfetto(
-                Bitmap.createScaledBitmap(
-                    confetti ?: BitmapFactory.decodeResource(resources, R.drawable.ta_confetti),
-                    size,
-                    size,
-                    false
-                )
-            )
-        }
-        val velocitySlow: Int = resources.getDimensionPixelOffset(R.dimen.default_velocity_slow)
-        val velocityNormal: Int = resources.getDimensionPixelOffset(R.dimen.default_velocity_normal)
+        val size = 125
 
         return ConfettiManager(
             context,
-            generator,
+            object : ConfettoGenerator {
+                override fun generateConfetto(random: Random?): Confetto {
+                    return BitmapConfetto(
+                        Bitmap.createScaledBitmap(
+                            confetti ?: BitmapFactory.decodeResource(resources, R.drawable.ta_confetti),
+                            size,
+                            size,
+                            false
+                        )
+                    )
+                }
+            },
             ConfettiSource(0, -size, this.width, -size),
             this
         ).apply {
-            setVelocityX(0f, velocitySlow.toFloat())
-            setVelocityY(velocityNormal.toFloat(), velocitySlow.toFloat())
+            setVelocityX(0f, 175f)
+            setVelocityY(350f, 175f)
             setRotationalVelocity(180f, 90f)
             setTouchEnabled(true)
             setNumInitialCount(0)
