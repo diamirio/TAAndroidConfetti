@@ -24,6 +24,10 @@ dependencies {
 }
 ```
 
+## Usage
+
+See `example` module.
+
 ## License
 
 ```
