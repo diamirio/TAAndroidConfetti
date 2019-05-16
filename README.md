@@ -20,8 +20,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.tailoredapps:confetti:1.0.8'
-    implementation 'com.github.jinatonic.confetti:confetti:1.1.1'
+    implementation 'com.tailoredapps:confetti:1.0.9'
 }
 ```
 
